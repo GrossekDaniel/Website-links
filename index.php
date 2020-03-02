@@ -23,7 +23,7 @@
 
             <div class="list-box">
             
-                <?php $results = mysqli_query($conn, "SELECT * FROM info"); ?>
+                <?php $results = mysqli_query($db, "SELECT * FROM info"); ?>
 
                 <table>
                     <thead>
