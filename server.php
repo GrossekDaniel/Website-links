@@ -1,7 +1,7 @@
 <?php
-$servername = "database4website.mysql.database.azure.com";
-$username = "grossman@database4website";
-$password = "zaq1@WSX";
+$servername = 'database4website.mysql.database.azure.com';
+$username = 'grossman@database4website';
+$password = 'zaq1@WSX';
 $db_name = 'crud';
 
 // Create connection
