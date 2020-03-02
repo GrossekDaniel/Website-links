@@ -8,15 +8,12 @@ $db_name = 'crud';
 $conn = mysqli_init();
 mysqli_real_connect($conn, $servername, $username, $password, $db_name, 3306);
 
-	session_start();
-	$db = mysqli_connect($servername, $username, $password, $db_name);
-	$id = 0;
 	$link = "";
 
 	if (isset($_POST['save'])) {
 		$link = $_POST['link'];
 
-		mysqli_query($db, "INSERT INTO info (link) VALUES ('$link')"); 
+		mysqli_query($conn, "INSERT INTO info (link) VALUES ('$link')"); 
 		$_SESSION['message'] = "Saved";
 		header('location: index.php');
 	}
