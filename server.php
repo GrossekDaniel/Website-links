@@ -1,0 +1,31 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+	session_start();
+	$db = mysqli_connect('localhost', 'root', '', 'crud');
+	$id = 0;
+	$link = "";
+
+	if (isset($_POST['save'])) {
+		$link = $_POST['link'];
+
+		mysqli_query($db, "INSERT INTO info (link) VALUES ('$link')"); 
+		$_SESSION['message'] = "Saved";
+		header('location: index.php');
+	}
+
+	if (isset($_GET['del'])) {
+        $id = $_GET['del'];
+        
+		mysqli_query($db, "DELETE FROM info WHERE id=$id");
+		$_SESSION['message'] = "Deleted!"; 
+		header('location: index.php');
+    }
+    
+    $results = mysqli_query($db, "SELECT * FROM info"); 
+?>

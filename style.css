@@ -1,0 +1,129 @@
+section.main {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(5, 20%);
+    height: 100vh;
+}
+
+.first-info {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-url,
+.item-email {
+    margin-bottom: 20px;
+    width: 30vw;
+    border-style: solid;
+    font-size: 23px;
+    padding: 6px;
+    text-align: center;
+    border-width: 2px;
+    border-radius: 28px;
+    border-color: #18db2f;
+    box-shadow: 1px 0px 15px 0px rgba(0, 232, 35, .75);
+    background-color: #cbfad6;
+    font-family: monospace;
+    font-style: none;
+    font-weight: bold;
+}
+
+.item-url:focus,
+.item-email:focus {
+    outline: none;
+}
+
+.iframe-box {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    border: 2px solid black;
+}
+
+.list-box {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    border: 2px solid red;
+}
+
+.buttons {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.save,
+.send {
+    background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+    background-color: #44c767;
+    border-radius: 42px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 19px;
+    padding: 16px 45px;
+    text-decoration: none;
+    text-shadow: 0px 1px 6px #2f6627;
+}
+
+.save:hover,
+.send:hover {
+    background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+    background-color: #5cbf2a;
+}
+
+.save:active,
+.send:active {
+    position: relative;
+    top: 1px;
+}
+
+.save,
+.send {
+    width: 10vw;
+    height: 7vh;
+}
+
+.btn {
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background: #5F9EA0;
+    border: none;
+    border-radius: 5px;
+}
+
+.del_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    color: white;
+    border-radius: 3px;
+    background: #800000;
+}
+
+.msg {
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    width: 50%;
+    text-align: center;
+}
