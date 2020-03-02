@@ -9,7 +9,7 @@ $conn = mysqli_init();
 mysqli_real_connect($conn, $servername, $username, $password, $db_name, 3306);
 
 	session_start();
-	$db = mysqli_real_connect($conn, $servername, $username, $password, $db_name, 3306);
+	$db = mysqli_connect($servername, $username, $password, $db_name);
 	$id = 0;
 	$link = "";
 
