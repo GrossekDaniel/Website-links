@@ -5,10 +5,11 @@ $password = 'zaq1@WSX';
 $db_name = 'crud';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = mysqli_init();
+mysqli_real_connect($conn, $servername, $username, $password, $db_name, 3306);
 
 	session_start();
-	$db = mysqli_connect($servername, $username, $password, $db_name);
+	$db = mysqli_real_connect($conn, $servername, $username, $password, $db_name, 3306);
 	$id = 0;
 	$link = "";
 
