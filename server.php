@@ -1,13 +1,14 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "database4website.mysql.database.azure.com";
+$username = "grossman@database4website";
+$password = "zaq1@WSX";
+$db_name = 'crud';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 
 	session_start();
-	$db = mysqli_connect('localhost', 'root', '', 'crud');
+	$db = mysqli_connect($servername, $username, $password, $db_name);
 	$id = 0;
 	$link = "";
 
