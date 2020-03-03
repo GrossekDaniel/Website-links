@@ -1,10 +1,16 @@
 <?php
 
+$host = "database4website.mysql.database.azure.com";
+$db_user = "grossman@database4website";
+$db_password = "zaq1@WSX";
+$db_name = "database4website";
 
+$conn = mysqli_init();
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
 
-// Create connection
-$con=mysqli_init(); 
-mysqli_real_connect($con, "database4website.mysql.database.azure.com", "grossman@database4website", "zaq1@WSX", "crud", 3306);
 
 	$id = 0;
 	$link = "";
@@ -12,7 +18,7 @@ mysqli_real_connect($con, "database4website.mysql.database.azure.com", "grossman
 	if (isset($_POST['save'])) {
 		$link = $_POST['link'];
 
-		mysqli_query($con, "INSERT INTO info (link) VALUES ('$link')"); 
+		mysqli_query($conn, "INSERT INTO info (link) VALUES ('$link')"); 
 		$_SESSION['message'] = "Saved";
 		header('location: index.php');
 	}
@@ -20,7 +26,7 @@ mysqli_real_connect($con, "database4website.mysql.database.azure.com", "grossman
 	if (isset($_GET['del'])) {
         $id = $_GET['del'];
         
-		mysqli_query($con, "DELETE FROM info WHERE id=$id");
+		mysqli_query($conn, "DELETE FROM info WHERE id=$id");
 		$_SESSION['message'] = "Deleted!"; 
 		header('location: index.php');
     }
