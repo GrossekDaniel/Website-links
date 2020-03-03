@@ -3,7 +3,7 @@
 $host = "database4website.mysql.database.azure.com";
 $db_user = "grossman@database4website";
 $db_password = "zaq1@WSX";
-$db_name = "database4website";
+$db_name = "crud";
 
 $conn = mysqli_init();
 mysqli_real_connect($conn, $host, $db_user, $db_password, $db_name, 3306);
