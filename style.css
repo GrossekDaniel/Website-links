@@ -52,7 +52,6 @@ section.main {
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 5;
-    border: 2px solid red;
 }
 
 .buttons {
@@ -111,10 +110,11 @@ section.main {
 
 .del_btn {
     text-decoration: none;
-    padding: 2px 5px;
+    padding: 4px 7px;
     color: white;
-    border-radius: 3px;
-    background: #800000;
+    border-radius: 15px;
+    background: #cc0000;
+    text-shadow: 1px 1px #000000;
 }
 
 .msg {
