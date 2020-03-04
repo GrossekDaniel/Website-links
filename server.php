@@ -19,11 +19,15 @@ public function sprawdzURL($input) {
 	$id = 0;
 	$link = "";
 
-	if (isset($_POST['save']) and (sprawdzURL($_POST['link'])!=false)) {
+	if (isset($_POST['save']) and (sprawdzURL($_POST['link'])!=true)) {
 		$link = $_POST['link'];
 
 		mysqli_query($conn, "INSERT INTO info (link) VALUES ('$link')"); 
 		$_SESSION['message'] = "Saved";
+		header('location: index.php');
+	}
+	else {
+		$_SESSION['message'] = "This is not a website";
 		header('location: index.php');
 	}
 
