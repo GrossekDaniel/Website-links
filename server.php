@@ -18,7 +18,7 @@ function sprawdzURL($input) {
 
 	if (isset($_POST['save'])) {
 		$link = $_POST['link'];
-		if sprawdzURL($link)!=true{
+		if (sprawdzURL($link)!=true){
 			$_SESSION['message'] = "This is not a website";
 			header('location: index.php');
 		}
