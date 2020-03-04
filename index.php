@@ -46,6 +46,8 @@
 	<div class="msg">
 		<?php 
 			echo $_SESSION['message']; 
+			sleep(3)
+			echo 'style="visibility:visible;"'
 			unset($_SESSION['message']);
 		?>
 	</div>
