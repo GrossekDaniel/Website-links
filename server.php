@@ -19,7 +19,7 @@ public function sprawdzURL($input) {
 	$id = 0;
 	$link = "";
 
-	if (isset($_POST['save']) and (sprawdzURL($_POST['link'])!=true)) {
+	if (isset($_POST['save']) and (sprawdzURL($_GET['link'])!=false)) {
 		$link = $_POST['link'];
 
 		mysqli_query($conn, "INSERT INTO info (link) VALUES ('$link')"); 
