@@ -43,7 +43,6 @@
                 </table>
                 
                 <?php
-                session_start();
                 if (!isset($_SESSION['message'])): ?>
                     <div class="msg">
                         <?php 
