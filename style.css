@@ -125,11 +125,9 @@ tr:hover {
 
 .save,
 .send {
-      margin-bottom: 20px;
-      width: 30vw;
       border-style: solid;
-      font-size: 23px;
-      padding: 6px;
+      font-size: 24px;
+      padding: 1px;
       color: white;
       text-align: center;
       border-width: 2px;
