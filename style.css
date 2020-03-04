@@ -69,40 +69,6 @@ section.main {
     align-items: center;
 }
 
-.save,
-.send {
-    background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
-    background-color: #44c767;
-    border-radius: 42px;
-    border: 1px solid #18ab29;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 19px;
-    padding: 16px 45px;
-    text-decoration: none;
-    text-shadow: 0px 1px 6px #2f6627;
-}
-
-.save:hover,
-.send:hover {
-    background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-    background-color: #5cbf2a;
-}
-
-.save:active,
-.send:active {
-    position: relative;
-    top: 1px;
-}
-
-.save,
-.send {
-    width: 10vw;
-    height: 7vh;
-}
-
 .btn {
     padding: 10px;
     font-size: 15px;
@@ -155,4 +121,40 @@ td {
 
 tr:hover {
     background: #F5F5F5;
+}
+
+.save,
+.send {
+    display: inline-block;
+    padding: 0.46em 1.6em;
+    border: 0.1em solid #000000;
+    margin: 0 0.2em 0.2em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #000000;
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    background-color: #FFFFFF;
+    text-align: center;
+    transition: all 0.15s;
+    height: 5vh;
+    width: 10vw;
+}
+
+.save:hover,
+.send:hover {
+    text-shadow: 0 0 2em rgba(255, 255, 255, 1);
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+@media all and (max-width:30em) {
+
+    .save,
+    .send {
+        display: block;
+        margin: 0.4em auto;
+    }
 }
