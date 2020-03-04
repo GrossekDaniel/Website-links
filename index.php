@@ -11,15 +11,15 @@
 </head>
 
 <body>
-    <?php if (isset($_SESSION['message'])): ?>
-        <div class="msg">
-            <?php 
-                echo $_SESSION['message']; 
-                unset($_SESSION['message']);
-            ?>
-        </div>
-    <?php endif ?>
     <form method="post" action="server.php">
+        <?php if (isset($_SESSION['message'])): ?>
+            <div class="msg">
+                <?php 
+                    echo $_SESSION['message']; 
+                    unset($_SESSION['message']);
+                ?>
+            </div>
+        <?php endif ?>
         <section class="main">
             <div class="first-info">
                 <input type="text" class="item-url" placeholder="Insert URL" name="link">
