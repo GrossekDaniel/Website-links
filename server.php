@@ -19,10 +19,6 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 		$_SESSION['message'] = "Saved";
 		header('location: index.php');
 	}
-	else {
-		$_SESSION['message'] = "This is not a website";
-		header('location: index.php');
-	}
 
 	if (isset($_GET['del'])) {
         $id = $_GET['del'];
