@@ -45,7 +45,7 @@
                 <?php if (isset($_SESSION['message'])): ?>
             	    <div class="msg">
                         <?php 
-                            echo $_SESSION['message']; 
+                            echo "<script type='text/javascript'>alert('$message');</script>"
                             unset($_SESSION['message']);
                         ?>
                     </div>
