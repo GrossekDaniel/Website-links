@@ -1,7 +1,4 @@
-<?php  
-    include('server.php');
-    session_start();
-?>
+<?php include('server.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +42,9 @@
                     <?php } ?>
                 </table>
                 
-                <?php if (isset($_SESSION['message'])): ?>
+                <?php
+                session_start();
+                if (isset($_SESSION['message'])): ?>
                     <div class="msg">
                         <?php 
                             echo $_SESSION['message']; 
