@@ -15,9 +15,9 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 
 	if (isset($_POST['save'])) {
 		$link = $_POST['link'];
-			if (!eregi('^(http://)w*.?w.w+.*$', $link)){
-   die('Wpisz poprawny adres w postaci http://www.twojastrona.pl');
-   }
+		if (!eregi('^(http://)w*.?w.w+.*$', $link)){
+   			die('Wpisz poprawny adres w postaci http://www.twojastrona.pl');
+   		}
 		mysqli_query($conn, "INSERT INTO info (link) VALUES ('$link')"); 
 		$_SESSION['message'] = "Saved";
 		header('location: index.php');
