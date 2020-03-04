@@ -12,14 +12,6 @@
 
 <body>
     <form method="post" action="server.php">
-        <?php if (isset($_SESSION['message'])): ?>
-            <div class="msg">
-                <?php 
-                    echo $_SESSION['message']; 
-                    unset($_SESSION['message']);
-                ?>
-            </div>
-        <?php endif ?>
         <section class="main">
             <div class="first-info">
                 <input type="text" class="item-url" placeholder="Insert URL" name="link">
@@ -49,6 +41,15 @@
                     </tr>
                     <?php } ?>
                 </table>
+                
+                <?php if (isset($_SESSION['message'])): ?>
+                    <div class="msg">
+                        <?php 
+                            echo $_SESSION['message']; 
+                            unset($_SESSION['message']);
+                        ?>
+                    </div>
+                <?php endif ?>
                 
             </div>
             <div class="buttons">
