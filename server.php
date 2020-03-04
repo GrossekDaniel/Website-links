@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host = "database4website.mysql.database.azure.com";
 $db_user = "grossman@database4website";
 $db_password = "zaq1@WSX";
