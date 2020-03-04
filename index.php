@@ -43,12 +43,8 @@
                 </table>
                 
                 <?php if (isset($_SESSION['message'])): ?>
-                    <div class="msg">
-                        <?php 
-                            echo $_SESSION['message']; 
-                            unset($_SESSION['message']);
-                        ?>
-                    </div>
+                    echo $_SESSION['message']; 
+                    unset($_SESSION['message']);
                 <?php endif ?>
                 
             </div>
