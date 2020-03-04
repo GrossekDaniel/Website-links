@@ -11,11 +11,15 @@ if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
+public function sprawdzURL($input) {
+        return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $input);
+}
+
 
 	$id = 0;
 	$link = "";
 
-	if (isset($_POST['save'])) {
+	if (isset($_POST['save']) and (sprawdzURL($_POST['link'])!=false)) {
 		$link = $_POST['link'];
 
 		mysqli_query($conn, "INSERT INTO info (link) VALUES ('$link')"); 
