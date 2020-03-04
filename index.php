@@ -16,7 +16,6 @@
             <div class="msg">
                 <?php 
                     echo $_SESSION['message']; 
-                    sleep(3);
                     unset($_SESSION['message']);
                 ?>
             </div>
