@@ -41,7 +41,7 @@ function sprawdzURL($input) {
       'api_key' => $pass,
       'to' => $email,
       'subject' => 'testing',
-      'html' => 'testing html',
+      'html' => 'testing body',
       'text' => $link,
       'from' => 'danielgrossek@gmail.com',
    );
