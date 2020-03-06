@@ -31,6 +31,7 @@ function sprawdzURL($input) {
 
 	if (isset($_POST['send'])){
 		$email = $_POST['email'];
+		$link = $_POST['link'];
 		$url = 'https://api.sendgrid.com/';
  		$user = 'grossman';
  		$pass = 'zaq1@WSX';
@@ -38,10 +39,10 @@ function sprawdzURL($input) {
  $params = array(
       'api_user' => $user,
       'api_key' => $pass,
-      'to' => '$email',
+      'to' => $email,
       'subject' => 'testing',
       'html' => 'testing html',
-      'text' => 'testing body',
+      'text' => $link,
       'from' => 'danielgrossek@gmail.com',
    );
 
