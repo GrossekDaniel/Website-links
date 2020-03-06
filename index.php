@@ -15,7 +15,7 @@
         <section class="main">
             <div class="first-info">
                 <input type="text" class="item-url" placeholder="Insert URL" name="link">
-                <input type="email" class="item-email" placeholder="Insert Email">
+                <input type="email" class="item-email" placeholder="Insert Email" name="email">
             </div>
             <div class="iframe-box">
 
@@ -54,7 +54,7 @@
             </div>
             <div class="buttons">
                 <button class="save" type="submit" name="save">Save</button>
-                <button class="send">Send</button>
+                <button class="send" type="submit" name="send">Send</button>
             </div>
 
         </section>
