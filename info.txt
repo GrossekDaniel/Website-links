@@ -1,0 +1,10 @@
+mysql -h database4website.mysql.database.azure.com -u grossman@database4website -p
+
+# mysql> CREATE DATABASE crud;
+
+mysql> USE crud;
+
+CREATE TABLE info (
+    id serial PRIMARY KEY AUTO_INCREMENT, 
+    link VARCHAR(100)
+);
