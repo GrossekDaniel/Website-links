@@ -18,7 +18,33 @@
                 <input type="email" class="item-email" placeholder="Insert Email" name="email">
             </div>
             <div class="iframe-box">
+                <?php
+                    $result = mysqli_query($conn,"SELECT * FROM info");
 
+                    while ($row = mysqli_fetch_array($result)) {
+                        $feeds = simplexml_load_file($row["link"]);
+                        if(!empty($feeds)){
+        
+                            $site = $feeds->channel->title;
+                            $sitelink = $feeds->channel->link;
+                
+                            echo "<h1>".$site."</h1>";
+                                foreach ($feeds->channel->item as $item) {
+                
+                                $title = $item->title;
+                                $link = $item->link;
+                                $description = $item->description;
+                                $postDate = $item->pubDate;
+                                $pubDate = date('D, d M Y',strtotime($postDate));
+                            }
+                            echo $title;
+                            echo $pubDate;
+                            echo implode(' ', array_slice(explode(' ', $description), 0, 20)) . "...";
+                            echo "<a href='".$link."'>Read more</a>";
+                        }
+                    }
+                ?>
+                
             </div>
 
             <div class="list-box">
