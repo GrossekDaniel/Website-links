@@ -16,10 +16,89 @@ function sprawdzURL($input) {
 	$id = 0;
 	$link = "";
 
+	if (isset($_POST['send'])){
+		
+		$result = mysqli_query($conn,"SELECT * FROM info");
+
+		$all_title = [];
+		$all_pubDate = [];
+		$all_description = [];
+		$all_link = [];
+		$all_site = [];
+
+		while ($row = mysqli_fetch_array($result)) {
+			$feeds = simplexml_load_file($row["link"]);
+			if(!empty($feeds)){
+
+				$site = $feeds->channel->title;
+				$sitelink = $feeds->channel->link;
+
+					foreach ($feeds->channel->item as $item) {
+	
+					$title = $item->title;
+					$link = $item->link;
+					$description = $item->description;
+					$postDate = $item->pubDate;
+					$pubDate = date('D, d M Y',strtotime($postDate));
+				}
+			}
+			array_push($all_site, $site);
+			array_push($all_title, $title);
+			array_push($all_pubDate, $pubDate);
+			array_push($all_description, $description);
+			array_push($all_link, $link);
+		}
+
+		for($i = 0; $i < count($all_site); $i++){
+			$all_data .= '<h1>'.$all_site[$i].'</h1><br>'.$all_title[$i].' '.$all_pubDate[$i].'<br>'.implode(' ', array_slice(explode(' ', $all_description[$i]), 0, 20)) .'...<a href="'.$all_link[$i].'">Read more</a><br><br>';
+		}
+
+		$email = $_POST['email'];
+		$url = 'https://api.sendgrid.com/';
+ 		$user = 'azure_cc68e3d8fa9df270d050b431e82449dd@azure.com';
+ 		$pass = 'zaq1@WSX';
+
+		$params = array(
+			'api_user' => $user,
+			'api_key' => $pass,
+			'to' => $email,
+			'subject' => 'RSS links',
+			'html' => $all_data, 
+			'text' => 'test',
+			'from' => 'danielgrossek@gmail.com',
+		);
+	
+
+		$request = $url.'api/mail.send.json';
+
+		// Generate curl request
+		$session = curl_init($request);
+
+		// Tell curl to use HTTP POST
+		curl_setopt ($session, CURLOPT_POST, true);
+
+		// Tell curl that this is the body of the POST
+		curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
+
+		// Tell curl not to return headers, but do return the response
+		curl_setopt($session, CURLOPT_HEADER, false);
+		curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+		// obtain response
+		$response = curl_exec($session);
+		curl_close($session);
+
+		// print everything out
+		print_r($response);
+				
+		header('location: index.php');
+	}
+
+	
 	if (isset($_POST['save'])) {
 		$link = $_POST['link'];
-		if (sprawdzURL($link)!=true){
-			$_SESSION['message'] = "This is not a website";
+		if (@simplexml_load_file($link)!=true){
+			$_SESSION['message'] = "This is not a website with RSS";
 			header('location: index.php');
 		}
 		else {
@@ -29,48 +108,6 @@ function sprawdzURL($input) {
 		}
 	}
 
-	if (isset($_POST['send'])){
-		$email = $_POST['email'];
-		$link = $_POST['link'];
-		$url = 'https://api.sendgrid.com/';
- 		$user = 'grossman';
- 		$pass = 'zaq1@WSX';
-
- $params = array(
-      'api_user' => $user,
-      'api_key' => $pass,
-      'to' => $email,
-      'subject' => 'testing',
-      'html' => 'testing body',
-      'text' => $link,
-      'from' => 'danielgrossek@gmail.com',
-   );
-
- $request = $url.'api/mail.send.json';
-
- // Generate curl request
- $session = curl_init($request);
-
- // Tell curl to use HTTP POST
- curl_setopt ($session, CURLOPT_POST, true);
-
- // Tell curl that this is the body of the POST
- curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
-
- // Tell curl not to return headers, but do return the response
- curl_setopt($session, CURLOPT_HEADER, false);
- curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-
- // obtain response
- $response = curl_exec($session);
- curl_close($session);
-
- // print everything out
- print_r($response);
-	}
-
-	
-
 	if (isset($_GET['del'])) {
         $id = $_GET['del'];
         
@@ -79,5 +116,4 @@ function sprawdzURL($input) {
 		header('location: index.php');
     }
     
-    $results = mysqli_query($db, "SELECT * FROM info"); 
 ?>
