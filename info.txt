@@ -8,3 +8,5 @@ CREATE TABLE info (
     id serial PRIMARY KEY AUTO_INCREMENT, 
     link VARCHAR(100)
 );
+
+# Refresh Deployment center in App Service
