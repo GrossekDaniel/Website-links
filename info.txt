@@ -1,3 +1,11 @@
+Strona działała prawidłowo, a aktualnie stoi bez bazy danych ponieważ na serwerze Azure nie można bazy postawić.
+
+
+
+
+
+
+
 mysql -h database4website.mysql.database.azure.com -u grossman@database4website -p
 
 # mysql> CREATE DATABASE crud;
