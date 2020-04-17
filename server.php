@@ -56,7 +56,7 @@ function sprawdzURL($input) {
 		
 		$email_to = $_POST['email'];
 		
-		require("sendgrid-php.php");
+		require 'sendgrid-php.php';
 		
 		$email = new \SendGrid\Mail\Mail();
 		$email->setFrom("danielgrossek@gmail.com", "Daniel Grossek");
