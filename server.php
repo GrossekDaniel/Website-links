@@ -55,8 +55,8 @@ function sprawdzURL($input) {
 
 		$email = $_POST['email'];
 		$url = 'https://api.sendgrid.com/';
- 		$user = 'login';
- 		$pass = 'key';
+ 		$user = 'azure_cc68e3d8fa9df270d050b431e82449dd@azure.com';
+ 		$pass = getenv('SENDGRID_API_KEY');
 
 		$params = array(
 			'api_user' => $user,
