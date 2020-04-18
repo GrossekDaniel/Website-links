@@ -93,7 +93,7 @@ function sprawdzURL($input) {
 		// print everything out
 		print_r($response);
 				
-		header('location: index.php');
+		//header('location: index.php');
 	}
 
 	
