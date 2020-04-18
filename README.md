@@ -1,3 +1,5 @@
+Ze względów na ograniczony dostęp do Azure nie można wykonać zadania 4 i 5. Poniżej screenshoty z wykonanego zadania 3.
+
 # site-for-university
 
 ![Website](https://github.com/Grossman97/Website-links/blob/master/look.png)
