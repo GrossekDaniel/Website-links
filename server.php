@@ -57,7 +57,7 @@ function sprawdzURL($input) {
 
 		$email = $_POST['email'];
 		$url = 'https://api.sendgrid.com/';
- 		$user = 'azure_cc68e3d8fa9df270d050b431e82449dd@azure.com';
+ 		$user = 'azure_24926687dd7addf4a552bcbeed725e60@azure.com';
  		$pass = 'zaq1@WSX';
 
 		$params = array(
@@ -93,7 +93,7 @@ function sprawdzURL($input) {
 		// print everything out
 		print_r($response);
 				
-		//header('location: index.php');
+		header('location: index.php');
 	}
 
 	
