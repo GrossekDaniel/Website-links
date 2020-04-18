@@ -48,6 +48,8 @@ function sprawdzURL($input) {
 			array_push($all_description, $description);
 			array_push($all_link, $link);
 		}
+		
+		$all_data = '';
 
 		for($i = 0; $i < count($all_site); $i++){
 			$all_data .= '<h1>'.$all_site[$i].'</h1><br>'.$all_title[$i].' '.$all_pubDate[$i].'<br>'.implode(' ', array_slice(explode(' ', $all_description[$i]), 0, 20)) .'...<a href="'.$all_link[$i].'">Read more</a><br><br>';
@@ -56,7 +58,7 @@ function sprawdzURL($input) {
 		$email = $_POST['email'];
 		$url = 'https://api.sendgrid.com/';
  		$user = 'azure_cc68e3d8fa9df270d050b431e82449dd@azure.com';
- 		$pass = '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';
+ 		$pass = 'zaq1@WSX';
 
 		$params = array(
 			'api_user' => $user,
